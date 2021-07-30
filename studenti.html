@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+function f(){
+	let Ebonie=new Student("Ebonie Rangel","7175 Yukon Street","(507) 833-3567","Geography");
+	let Keenan=new Student("Keenan Ellwood","2 Elm Lane","(894) 831-6482","History");
+	let Kailan=new Student("Kailan Smart","795 Harvard Street","(925) 856-5167","Biology");
+	console.log(ebonie.getInfo());
+	console.log(keenan.getInfo());
+	console.log(kailan.getInfo());
+
+document.getElementById('file').onchange = function(){
+
+
+  var file = this.files[0];
+
+  var citac = new FileReader();
+  citac.onload = function(e){
+  
+    var redovi = this.result.split('\n');
+	var poz=0;
+	while(poz>redovi.length){
+		ime=redovi[poz];
+		adresa=redovi[poz+1];
+		brTel=redovi[poz+2];
+		kurs=redovi[poz+3];
+		let student=new Student(ime,adresa,brTel,kurs);
+		console.log(student.getInfo());
+		poz=poz+4;
+	}
+	
+  };
+  reader.readAsText(file);
+}
+</script>
+
+</body>
+</html>
